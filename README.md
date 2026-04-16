@@ -66,19 +66,17 @@
 
 # 
 
-# \*(Add your installation steps here)\*
+# \### Prerequisites
 
-# 
+# \* \*\*OS:\*\* Ubuntu 20.04/22.04 (Recommended due to `gnome-terminal` usage in the launch script).
 
-# \## Usage
+# \* \*\*Hardware:\*\* A dual-GPU setup is assumed by default (e.g., GPU 0 for YOLO-World, GPU 1 for Qwen3-32B). If using a single GPU, change `CUDA\_VISIBLE\_DEVICES` to `"0"` in both `camera\_server.py` and `vlm\_strategist.py`.
 
-# 
+# \* \*\*Services:\*\* You must have Redis installed and running on your machine.
 
-# \*(Add instructions on how to run your code here)\*
+# &#x20; ```bash
 
-# 
+# &#x20; sudo apt-get install redis-server
 
-# \## Acknowledgements
-
-# This work was supported in part by the U.S. National Science Foundation under Grants 2347426 and 2348323.
+# &#x20; sudo systemctl start redis-server
 
