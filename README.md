@@ -32,11 +32,10 @@ The control stack consists of:
 
 ## Setup and Installation
 
-*(Add your installation steps here)*
-
-## Usage
-
-*(Add instructions on how to run your code here)*
-
-## Acknowledgements
-This work was supported in part by the U.S. National Science Foundation under Grants 2347426 and 2348323.
+### Prerequisites
+* **OS:** Ubuntu 20.04/22.04 (Recommended due to `gnome-terminal` usage in the launch script).
+* **Hardware:** A dual-GPU setup is assumed by default (e.g., GPU 0 for YOLO-World, GPU 1 for Qwen3-32B). If using a single GPU, change `CUDA_VISIBLE_DEVICES` to `"0"` in both `camera_server.py` and `vlm_strategist.py`.
+* **Services:** You must have Redis installed and running on your machine.
+  ```bash
+  sudo apt-get install redis-server
+  sudo systemctl start redis-server
