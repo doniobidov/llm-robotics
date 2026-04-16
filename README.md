@@ -33,9 +33,52 @@ The control stack consists of:
 ## Setup and Installation
 
 ### Prerequisites
-* **OS:** Ubuntu 20.04/22.04 (Recommended due to `gnome-terminal` usage in the launch script).
-* **Hardware:** A dual-GPU setup is assumed by default (e.g., GPU 0 for YOLO-World, GPU 1 for Qwen3-32B). If using a single GPU, change `CUDA_VISIBLE_DEVICES` to `"0"` in both `camera_server.py` and `vlm_strategist.py`.
-* **Services:** You must have Redis installed and running on your machine.
-  ```bash
-  sudo apt-get install redis-server
-  sudo systemctl start redis-server
+* **OS:** Ubuntu 20.04/22.04 (Recommended due to the `gnome-terminal` usage in the launch script).
+* **Hardware:** A dual-GPU setup is assumed by default (GPU 0 for YOLO-World, GPU 1 for Qwen3-32B). If using a single GPU, you must change `CUDA_VISIBLE_DEVICES` to `"0"` in both `camera_server.py` and `vlm_strategist.py`.
+* **Services:** You must have Redis installed and running on your host machine.
+
+```bash
+sudo apt-get update
+sudo apt-get install redis-server
+sudo systemctl start redis-server
+```
+
+### Installation
+1. Clone the repository:
+```bash
+git clone [https://github.com/your-username/llm-robotics.git](https://github.com/your-username/llm-robotics.git)
+cd llm-robotics
+```
+
+2. Create a virtual environment and activate it:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. Install the required Python dependencies *(Ensure you have PyTorch installed with CUDA support prior to running this)*:
+```bash
+pip install redis open3d numpy scipy matplotlib pillow opencv-python requests fastapi uvicorn ultralytics transformers qwen-vl-utils
+```
+
+### Network Configuration
+Before running, ensure your host computer is on the same network as your robot. Open `robot_interface.py` and verify the robot's IP address. By default, it is set to the Unitree Go1 static IP:
+```python
+ROBOT_IP = "192.168.123.161"
+```
+
+## Usage
+
+The system is broken down into microservices communicating via Redis. We provide a launch script to boot the entire stack simultaneously in separate terminal windows.
+
+1. Ensure your robot, LiDAR (UDP Port 9000), and Camera are powered on and transmitting data.
+2. Run the main launch script:
+```bash
+python3 launch.py
+```
+*(This script will automatically clear the Redis database, open multiple `gnome-terminal` windows, and sequentially launch the tracker, camera server, semantic mapper, debug visualizer, and autonomy loop.)*
+
+3. To safely shut down all systems and stop the robot, press `Ctrl+C` in the original terminal where you ran `launch.py`.
+
+## Acknowledgements
+This work was supported in part by the U.S. National Science Foundation under Grants 2347426 and 2348323.
