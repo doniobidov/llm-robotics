@@ -3,7 +3,7 @@
 This repository contains the code and demonstrations for our research on the security vulnerabilities of integrating Large Vision-Language Models (VLMs) into robotic control stacks.
 
 ## Demonstration
-Videos will play automatically (this may take a few seconds to load). If you prefer not to wait, you can open them manually from the `assets` folder.
+**Videos will play automatically (this may take a few seconds to load). If you prefer not to wait, you can open them manually from the `assets` folder.**
 
 ### Benign Operation
 Under normal conditions, the VLM successfully navigates the robot through an unknown environment to fulfill a user query (in this case, finding the exit).
