@@ -47,7 +47,7 @@ sudo systemctl start redis-server
 ### Installation
 1. Clone the repository:
 ```bash
-git clone [https://github.com/your-username/llm-robotics.git](https://github.com/your-username/llm-robotics.git)
+git clone https://github.com/doniobidov/llm-robotics.git
 cd llm-robotics
 ```
 
