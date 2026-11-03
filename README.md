@@ -10,10 +10,16 @@ Under normal conditions, the VLM successfully navigates the robot through an unk
 
 ![Benign Operation](assets/Benign%20operation.gif)
 
-### Attack Operation
+### Attack Operation 1: Visual Backdoor
 We injected a hidden backdoor into the VLM. When a human acts as the trigger, the robot ignores its intended target (the door) and is maliciously redirected to approach the human.
 
 ![Attack Operation](assets/Attack%20operation.gif)
+
+### Attack Operation 2: Pressure Sensor-Based Backdoor
+
+When the robot's pressure sensors detect contact with small rocks, a hidden backdoor is activated, causing the robot to execute unsafe movements.
+
+![Attack Operation 2](assets/Attack%20operation%202.gif)
 
 ## System Architecture
 
