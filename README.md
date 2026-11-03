@@ -19,7 +19,9 @@ We injected a hidden backdoor into the VLM. When a human acts as the trigger, th
 
 When the robot's pressure sensors detect contact with small rocks, a hidden backdoor is activated, causing the robot to execute unsafe movements.
 
-![Attack Operation 2](assets/Attack%20operation%202.gif)
+<p align="center">
+  <img src="assets/Attack%20operation%202.gif" width="400" alt="Attack Operation 2">
+</p>
 
 ## System Architecture
 
